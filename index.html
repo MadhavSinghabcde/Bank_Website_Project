@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        padding: 0 35% 0 35%;
+        background-color: rgba(233, 228, 221, 0.504);
+       }
+        form
+        {
+            background-color: bisque;
+            height: 480px;
+            width: 350px;
+            margin: 30px;
+            padding: 30px;
+            border-radius: 6%;
+           
+        }
+
+        div{
+            margin: 20px;
+        }
+
+        #names, #password{
+            width: 80px;
+            border: 0px;
+            border-radius: 10%;
+            margin-right: 2px;
+        }
+
+        small{
+            font-size: smaller;
+            color: red;
+        }
+
+        button{
+            height: 50px;
+            width: 80px;
+            background-color: rgba(86, 49, 120, 0.564);
+            border-radius: 10%;
+            font-family: cursive;
+            font-weight: bold;
+            color: black;
+            text-shadow: 0.2px 0.2px 0.2px;
+        }
+
+        #transfer_money_form, #recieve_money_form, #loan_money_form{
+            height: 250px;
+        }
+        #close_acc_form{
+            height: 350px;
+        }
+
+        button:hover{
+            opacity: 85%;
+            transform: scale(1.05);
+            /* transition: transform(scale(1.1)) 1s ease-in-out; */
+        }
+
+        #recieve_money_requests_container{
+
+        }
+        .each_money_request{
+            background-color: rgb(208, 185, 155);
+            border-radius: 10px;
+            width: 350px;
+            margin: 20px;
+            color: black;
+        }
+        .request_money_div_txt{
+            color: rgb(130, 41, 41);
+            font-weight: bolder;
+            
+        }
+        #red_text{
+            color: red;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <br>
+
+    <!-- Login form below this -->
+    <form action='' method="post" id="form" style="height: 200px;">
+
+        <h2>Login form</h2>
+        <div>
+            <label for="name">Name:    </label>
+            <input type="text" id="names">
+            <small id="name_small"></small>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <small id="pass_small"></small>
+        </div>
+        
+            <button type="" id="submit_btn">Submit</button>
+        
+
+    </form>
+
+
+    <div id="show_account">
+
+    </div>
+
+
+
+<section id="after_sign_in_section">
+<hr> 
+ <!-- Transfer, recieve and loan money form to be created after this..// --> 
+    <!-- First a drop-down will appear asking for which action you want to happen -->
+
+     <h1>TYPE OF MONEY TRANSFER: </h1>
+    <label for="dropdown">Select an option:</label>
+    <select id="dropdown_exchange_money_type">
+        <option value="Transfer_money" selected >Transfer Money</option>
+        <option value="Recieve_money">Recieve Money</option>
+        <option value="Loan_money">Loan Money</option>
+    </select>
+
+
+    <form method="post" id="transfer_money_form" style="height: auto;">
+
+        <div>
+            <label for="transfer_to">Transfer to Username: </label>
+            <input id="transfer_to" type="text">
+
+            <small id="transfer_to_user_small"></small>
+        </div>
+
+        <div>
+            <label for="Amount_to_transfer">Amount: </label>
+            <input id="transfer_amount" type="number">
+            <small id="amount_transfer_small"></small>
+        </div>
+        <button id="transfer_money_btn">Transfer</button>
+        
+        <div id="transfer_btn_msg"><h2></div>
+            <div id="money_transfers"></div>
+    </form>
+
+
+    <form method="post" id="recieve_money_form">
+        <div>
+            <label for="recieve_from">Recieve from Username: </label>
+            <input id="recieve_from" type="text">
+            <small id="small_recieve_from"></small>
+        </div>
+
+        <div>
+            <label for="Amount_to_recieve">Recieve Amount: </label>
+            <input id="recieve_amount" type="number">
+            <small id="small_recieve_amount"></small>
+        </div>
+        <button id="request_money_btn">Request money</button>
+
+    </form>
+
+
+    <form method="post" id="loan_money_form">
+
+        <div>
+            <label for="Amount_to_loan">Loan Amount: </label>
+            <input id="loan_amount" type="number">
+            <small></small>
+        </div>
+        <button id="ask_loan_btn">Ask Loan</button>
+
+    </form>
+
+<hr>
+
+
+ <!-- creating a box that displays the recieve money requests from others 
+created for signed_in_user  -->
+ <div id="recieve_money_requests_container" style="background-color: antiquewhite; height: auto">
+<div class="each_money_request">
+<h1>MONEY REQUESTS FROM OTHER USERS:</h1>
+<h3><span id="red_text">No Requests yet!</span></h3>
+</div>
+
+</div>
+
+<hr> 
+
+
+    <!-- Create account form to be created below this  -->
+     <form action='/' method= 'post' id="create_acc_form" style="height: auto;" >
+
+        <h2>Create Account Form</h2>
+        <p style="color: darkgreen;">Initial deposit will be 10k</p>
+        <div>
+            <label for="Full_Name">Full Name: </label>
+            <input type="text" id="acc_full_name">
+            <small id="small_acc_full_name"></small>
+        </div>
+
+        <div>
+            <label for="Username">Username</label>
+            <input type="text" id="acc_username">
+            <small id="small_username"></small>
+        </div>
+
+        <div>
+            <label for="Aadhar number">Aadhar no. </label>
+            <input type="text" id="acc_aadhar">
+            <small id="small_acc_aadhar"></small>
+        </div>
+
+        <div>
+            <label for="">Password: </label>
+            <input type="text" id="acc_pass">
+            <small id="small_acc_pass"></small>
+        </div>
+
+        <div>
+            <label for="">Confirm-Password: </label>
+            <input type="text" id="acc_confirm_pass">
+            <small id="small_confirm_acc_pass"></small>
+        </div>
+
+        <button id="create_acc_btn">Create Account</button>
+        <div id="create_acc_div"></div> 
+    </form>
+    
+
+
+
+
+    <!-- Creating a closing account button -->
+ <hr>
+    <form method = 'post' id = 'close_acc_form'>
+        <h2>Close Account Form</h2>
+        <div>
+            <label for="Username" id="Username">Username: </label>
+            <input type="text" id="close_acc_username">
+            <small id="close_acc_usr_small"></small>
+        </div>
+            
+        <div>
+            <label for="password">Password: </label>
+            <input type="text" id="close_acc_password">
+            <small id="close_acc_pass_small"></small>
+        </div>
+
+        <div>
+            <label for="confirm_password">Confirm password: </label>
+            <input type="text" id="close_acc_confirm_pass">
+            <small id="close_acc_confirm_pass_small"></small>
+
+            <h3 id="close_acc_confirmation"></h3>
+        </div> 
+        
+        <!-- not to set the method of button if you don't want page to refresh -->
+         <button id="close_acc_btn"> Delete Acccount </button>
+    </form>
+
+
+    
+
+</section>  
+
+    <script src="perfect_code_backup.js"></script>
+</body>
+</html> 
